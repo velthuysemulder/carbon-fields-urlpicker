@@ -24,7 +24,7 @@ class UrlPicker_Field extends Field
 		$this->set_value_set(new Value_Set(Value_Set::TYPE_MULTIPLE_PROPERTIES, [
 			'url' => $this->url,
 			'anchor' => $this->anchor,
-			'blank' => (bool) $this->blank
+			'blank' => 0
 		]));
 
 		remove_action('wp_ajax_carbonfields_urlpicker_get_tinymce_popup', [$this, 'get_tinymce_popup']);
@@ -88,7 +88,7 @@ class UrlPicker_Field extends Field
 		$value_set = [
 			'url' => $this->url,
 			'anchor' => $this->anchor,
-			'blank' => (bool) $this->blank,
+			'blank' => 0,
 		];
 
 		foreach ($value_set as $key => $v) {
@@ -111,12 +111,12 @@ class UrlPicker_Field extends Field
 	{
 		$field_data = parent::to_json($load);
 
-		$field_data['value']['blank'] = (bool)$field_data['value']['blank'];
+		// $field_data['value']['blank'] = (bool)$field_data['value']['blank'];
 
 		$field_data = array_merge($field_data, [
 			'url' => $this->url,
 			'anchor' => $this->anchor,
-			'blank' => (bool) $this->blank,
+			'blank' => 0,
 		]);
 
 		return $field_data;

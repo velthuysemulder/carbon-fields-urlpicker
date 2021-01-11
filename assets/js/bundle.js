@@ -346,7 +346,7 @@ var openTinyMceLinkEditor = exports.openTinyMceLinkEditor = function openTinyMce
 	wpLink.setDefaultValues = function () {
 		$('#wp-link-url').val(value.url);
 		$('#wp-link-text').val(value.anchor);
-		$('#wp-link-target').prop('checked', !!value.blank);
+		$('#wp-link-target').prop('checked', value.blank != 0);
 	};
 
 	wpLink.open(dummyID);
